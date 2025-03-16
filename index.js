@@ -2,16 +2,40 @@ const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-
+const mongoose = require("mongoose");
 const app = express();
 const PORT = 3000; // You can use any port
+const MONGO_URI="mongodb+srv://nitingojiya2000:xDiP1WQOKQ57XT8f@nitingojiya.gu0kg.mongodb.net/nitingojiya"
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
+
+mongoose.connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }).then(() => console.log("MongoDB Connected"))
+    .catch(err => console.error("MongoDB Connection Error:", err));
 // Serve the HTML file
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+const projectSchema = new mongoose.Schema({
+    name: String,
+    description: String,
+  });
+  
+  const Project = mongoose.model("Project", projectSchema);
+  
+  // 🔹 GET API - Fetch All Projects
+  app.get("/projects", async (req, res) => {
+    try {
+      const projects = await Project.find();
+      res.json(projects);
+    } catch (error) {
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 
 app.post('/send-mail', async (req, res) => {
     const { email, message,name ,service,number} = req.body;

@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Laborer Management System ",
+        "description": "A Laborer Management System in PHP helps manage worker records, attendance, wages, and job assignments efficiently. It streamlines labor tracking, payment processing, and performance monitoring for improved workforce management.",
+        "tag": "PHP",
+        "imageUrl": "https://res.cloudinary.com/dqc4beopi/image/upload/v1742126617/laborer_v6of1b.jpg",
+        "linkedin": "https://github.com/NitinGojiya/Laborer"
+    },
+    {
+      "name": "EyeCare appoinment System ",
+      "description": "An EyeCare Appointment System in PHP allows patients to book, manage, and track eye checkup appointments online. It streamlines scheduling for clinics, reducing wait times and improving patient care.",
+      "tag": "PHP",
+      "imageUrl": "https://res.cloudinary.com/dqc4beopi/image/upload/v1742127062/eyecare_it5e4r.jpg",
+      "linkedin": "https://github.com/NitinGojiya/eye-care-optical-management/tree/master"
+    }
+    ,
+    {
+      "name": "Plant Selling Website",
+      "description": "A Plant Selling Website in PHP allows users to browse, purchase, and manage plant orders online. It includes features like product listings, a shopping cart, secure checkout, and an admin panel for inventory management. ",
+      "tag": "PHP",
+      "imageUrl": "https://res.cloudinary.com/dqc4beopi/image/upload/v1742127942/plant_oacbwi.jpg",
+      "linkedin": "https://github.com/NitinGojiya/plant-web"
+    }
+ 
+]
