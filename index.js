@@ -11,17 +11,23 @@ const PORT = 3000; // You can use any port
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
-if (!process.env.MONGO_URI) {
-    console.error("❌ ERROR: MongoDB URI is undefined! Check your .env file.");
-    process.exit(1);
-}
 
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log("MongoDB Connected"))
-    .catch(err => console.error("MongoDB Connection Error:", err));
+const { MongoClient } = require('mongodb');
+
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri);
+
+client.connect()
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Connection error:', err));
+
+
+// mongoose.connect(process.env.MONGO_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// }).then(() => console.log("MongoDB Connected"))
+//     .catch(err => console.error("MongoDB Connection Error:", err));
 // Serve the HTML file
 
 app.get('/', (req, res) => {
