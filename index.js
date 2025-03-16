@@ -17,11 +17,11 @@ if (!process.env.MONGO_URI) {
 }
 
 
-    mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }).then(() => console.log("MongoDB Connected"))
-        .catch(err => console.error("MongoDB Connection Error:", err));
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => console.log("MongoDB Connected"))
+    .catch(err => console.error("MongoDB Connection Error:", err));
 // Serve the HTML file
 
 app.get('/', (req, res) => {
@@ -30,29 +30,34 @@ app.get('/', (req, res) => {
 const projectSchema = new mongoose.Schema({
     name: String,
     description: String,
-  });
-  
-  const Project = mongoose.model("Project", projectSchema);
-  
-  // 🔹 GET API - Fetch All Projects
-  app.get("/projects", async (req, res) => {
+    tag: String,
+    imageUrl: String,
+    linkedin: String
+
+});
+
+const Project = mongoose.model("Project", projectSchema);
+console.log("MONGO_URI outer:", process.env.MONGO_URI);
+// 🔹 GET API - Fetch All Projects
+app.get("/projects", async (req, res) => {
     try {
-      const projects = await Project.find();
-      res.json(projects);
+        const projects = await Project.find();
+        res.json(projects);
     } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
+        console.log("MONGO_URI:", process.env.MONGO_URI);
+        res.status(500).json({ error: "Internal Server Error" });
     }
-  });
+});
 
 app.post('/send-mail', async (req, res) => {
-    const { email, message,name ,service,number} = req.body;
-  
+    const { email, message, name, service, number } = req.body;
+
     // Configure Nodemailer
     const transporter = nodemailer.createTransport({
         host: 'smtp.your-email-provider.com',
         service: 'gmail', // e.g., Gmail, Outlook, etc.
-        secure:true,
-        port:465,
+        secure: true,
+        port: 465,
         auth: {
             user: 'nitingojiya2000@gmail.com', // Your email
             pass: 'kcrt qvmd nkce evbd', // Your email password or app-specific password
@@ -61,13 +66,13 @@ app.post('/send-mail', async (req, res) => {
             rejectUnauthorized: false, // Ignore self-signed certificate errors
         },
     });
-  
+
     const mailOptions = {
-        from:"nitingojiya2000@gmail.com", // Sender's email
+        from: "nitingojiya2000@gmail.com", // Sender's email
         to: 'nitingojiya2000@gmail.com', // Receiver's email
-        subject:'Contact From Portfolio Website', // Subject line
-        text:message, // Plain text body
-        html:'<p style="font-size:2rem;"><br/>Name:- '+name +'<br/>Email:- '+email+'<br/>Mobile Number:- '+number +' <br/>Service:-'+service+'<br/>Message:-'+message+'</p>' ,
+        subject: 'Contact From Portfolio Website', // Subject line
+        text: message, // Plain text body
+        html: '<p style="font-size:2rem;"><br/>Name:- ' + name + '<br/>Email:- ' + email + '<br/>Mobile Number:- ' + number + ' <br/>Service:-' + service + '<br/>Message:-' + message + '</p>',
     };
 
     // try {
@@ -124,9 +129,9 @@ app.post('/send-mail', async (req, res) => {
             </html>
         `);
     }
-    
+
 });
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
