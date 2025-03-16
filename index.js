@@ -1,20 +1,27 @@
+require("dotenv").config();
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const app = express();
+
 const PORT = 3000; // You can use any port
-const MONGO_URI="mongodb+srv://nitingojiya2000:xDiP1WQOKQ57XT8f@nitingojiya.gu0kg.mongodb.net/nitingojiya"
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
+if (!process.env.MONGO_URI) {
+    console.error("❌ ERROR: MongoDB URI is undefined! Check your .env file.");
+    process.exit(1);
+}
 
-mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(() => console.log("MongoDB Connected"))
-    .catch(err => console.error("MongoDB Connection Error:", err));
+
+    mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }).then(() => console.log("MongoDB Connected"))
+        .catch(err => console.error("MongoDB Connection Error:", err));
 // Serve the HTML file
 
 app.get('/', (req, res) => {
