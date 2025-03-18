@@ -17,12 +17,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve static files (frontend)
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, '../public')));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+})
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    retryWrites: true,
+    w: 'majority'
 }).then(() => console.log("MongoDB Connected"))
     .catch(err => console.error("MongoDB Connection Error:", err));
 
