@@ -18,9 +18,10 @@ const { MongoClient } = require('mongodb');
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 
-client.connect()
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Connection error:', err));
+mongoose.connect(process.env.MONGO_URI, {
+    tls: true,
+    tlsAllowInvalidCertificates: true,
+  });
 
 
 // mongoose.connect(process.env.MONGO_URI, {
@@ -138,6 +139,6 @@ app.post('/send-mail', async (req, res) => {
 
 });
 // Start the server
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
