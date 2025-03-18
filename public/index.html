@@ -121,7 +121,7 @@
                             <p class="mb-4"><a class="custom-btn btn custom-link" onclick="call()"><i
                                         class="bi bi-whatsapp "></i>&nbsp; Let's Connect</a>
                             </p>
-                            <p class="mb-4"><a class="custom-btn btn custom-link" target="_blank" href="RESUME.pdf"><i
+                            <p class="mb-4"><a class="custom-btn btn custom-link" target="_blank" href="Nitin_Gojiya_2025.pdf"><i
                                         class="bi bi-file-earmark-pdf"></i>&nbsp;Resume</a>
                             </p>
                             <script>
@@ -385,72 +385,6 @@
         </section>
 
 
-        <!-- <section class="projects section-padding" id="section_4">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-8 col-md-8 col-12 ms-auto">
-                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
-                            <img src="images/project.jpg" class="avatar-image img-fluid"
-                                alt="">
-
-                            <h2 class="text-white ms-4 mb-0">Major Projects</h2>
-                        </div>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="projects-thumb">
-                            <div class="projects-info">
-                                <small class="projects-tag">Website-MERN Stack </small>
-                              <a href="https://www.linkedin.com/in/nitin-gojiya-301a1524b/"><i style="font-size: 2rem;" class="fa-brands fa-linkedin"></i></a> 
-                                <h3 class="projects-title">Book Store Managment</h3>
-                            </div>
-
-                            <a href="images/projects/book1.jpg" class="popup-image">
-                                <img src="images/projects/book1.jpg"
-                                    class="projects-image img-fluid" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="projects-thumb">
-                            <div class="projects-info">
-                                <small class="projects-tag">Website- Php</small>
-                                <a href="https://www.linkedin.com/in/nitin-gojiya-301a1524b/"><i style="font-size: 2rem;" class="fa-brands fa-linkedin"></i></a> 
-
-                                <h3 class="projects-title" style="text-transform: capitalize;">DosaBite (online ordering and table managment qr system)</h3>
-                            </div>
-
-                            <a href="images/projects/dosa.jpg" class="popup-image">
-                                <img src="images/projects/dosa.jpg"
-                                    class="projects-image img-fluid" alt="">
-                            </a>
-                          
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="projects-thumb">
-                            <div class="projects-info">
-                                <small class="projects-tag">Desktop Application</small>
-                                <a href="https://www.linkedin.com/in/nitin-gojiya-301a1524b/"><i style="font-size: 2rem;" class="fa-brands fa-linkedin"></i></a> 
-
-                                <h3 class="projects-title">Dairy Farm Managment</h3>
-                            </div>
-
-                            <a href="images/projects/dashboard.png" class="popup-image">
-                                <img src="images/projects/dashboard.png"
-                                    class="projects-image img-fluid" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section> -->
         <section class="projects section-padding" id="section_4">
             <div class="container">
                 <div class="row">
@@ -588,72 +522,108 @@
                     </div>
 
                     <div class="col-lg-6 col-12 mt-5 mt-lg-0">
-                        <form action="/send-mail" method="POST" class="custom-form contact-form" role="form">
+                    
+                        <form action="/send-mail" method="POST" class="custom-form contact-form needs-validation" role="form" novalidate>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Name"
-                                            required="">
-
-                                        <label for="floatingInput">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+                                        <label for="name">Name</label>
+                                        <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
                                 </div>
-
+                        
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-floating">
-                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                            class="form-control" placeholder="Email address" required="">
-
-                                        <label for="floatingInput">Email address</label>
+                                        <input type="email" name="email" id="email" pattern="[^ @]+@[^ @]+\.[a-zA-Z]{2,6}" 
+                                            class="form-control" placeholder="Email address" required>
+                                        <label for="email">Email address</label>
+                                        <div class="invalid-feedback">Please enter a valid email.</div>
                                     </div>
                                 </div>
-
+                        
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="number" id="email" class="form-control"
-                                            placeholder="Mobile Number" required="" pattern="^\{10}$">
-
-                                        <label for="floatingInput">Mobile Number</label>
+                                        <input type="text" name="number" id="number" class="form-control" placeholder="Mobile Number" 
+                                            pattern="\d{10}" required>
+                                        <label for="number">Mobile Number</label>
+                                        <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
                                     </div>
                                 </div>
+                        
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-floating">
-
                                         <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Select Service
-                                                </label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="service">
-                                                <option selected>Choose...</option>
+                                            <label class="input-group-text" style="height:50px;" for="inputGroupSelect01">Select Service</label>
+                                            <select class="form-control" style="height:50px;" id="inputGroupSelect01" name="service" required>
+                                                <option value="" disabled selected>Choose...</option>
                                                 <option value="Websites">Websites</option>
                                                 <option value="Software">Software</option>
                                                 <option value="SEO">SEO</option>
                                                 <option value="UI/UX">UI/UX</option>
                                             </select>
+                                            <div class="invalid-feedback">Please select a service.</div>
                                         </div>
                                     </div>
                                 </div>
+                        
                                 <div class="col-lg-12 col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="message" name="message"
-                                            placeholder="Tell me about the project"></textarea>
-
-                                        <label for="floatingTextarea">Tell me about the project</label>
+                                        <textarea class="form-control" id="message" name="message" placeholder="Tell me about the project" required></textarea>
+                                        <label for="message">Tell me about the project</label>
+                                        <div class="invalid-feedback">Please enter your project details.</div>
                                     </div>
                                 </div>
-
+                        
                                 <div class="col-lg-3 col-12 ms-auto">
-                                    <button type="submit" class="form-control">Send</button>
+                                    <button type="submit" class="form-control btn btn-primary">Send</button>
                                 </div>
-
                             </div>
                         </form>
+                        
+                        <script>
+                            // Bootstrap Form Validation
+                            (function () {
+                                'use strict';
+                                var forms = document.querySelectorAll('.needs-validation');
+                                Array.prototype.slice.call(forms).forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            })();
+                        </script>
+                        
                     </div>
 
                 </div>
             </div>
             </div>
+            <button id="scrollUpBtn">
+                <i class="bi bi-arrow-up"></i>
+            </button>
+            <script>
+                // Get the button
+                let scrollUpBtn = document.getElementById("scrollUpBtn");
+        
+                // Show button when user scrolls down
+                window.onscroll = function () {
+                    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                        scrollUpBtn.style.display = "block";
+                    } else {
+                        scrollUpBtn.style.display = "none";
+                    }
+                };
+        
+                // Scroll to top smoothly
+                scrollUpBtn.addEventListener("click", function () {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            </script>
         </section>
 
     </main>

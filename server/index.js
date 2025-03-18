@@ -98,7 +98,7 @@ app.post('/send-mail', async (req, res) => {
                         Email sent successfully!
                     </div>
                     <div>
-                        <a href='index.html'><i style='font-size:3rem;color:green;' class="bi bi-box-arrow-left me-5"></i></a>
+                        <a href='../public/index.html'><i style='font-size:3rem;color:green;' class="bi bi-box-arrow-left me-5"></i></a>
                     </div>
                 </div>
             </body>
@@ -121,7 +121,7 @@ app.post('/send-mail', async (req, res) => {
                         Error: ${error.message}
                     </div>
                     <div>
-                        <a href='index.html'><i style='font-size:3rem;color:red;' class="bi bi-box-arrow-left me-5"></i></a>
+                        <a href='../public/index.html'><i style='font-size:3rem;color:red;' class="bi bi-box-arrow-left me-5"></i></a>
                     </div>
                 </div>
             </body>
